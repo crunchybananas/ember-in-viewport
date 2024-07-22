@@ -1,7 +1,7 @@
-import ENV from 'dummy/config/environment';
+import ENV from 'test-app/config/environment';
 
 export const artworkProfiles = {
-  dummy: {
+  test-app: {
     jumbo: { width: 300, height: 300 },
     desktop: { width: 300, height: 300 },
     tablet: { width: 200, height: 200 },

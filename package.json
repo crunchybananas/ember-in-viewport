@@ -1,101 +1,26 @@
 {
-  "name": "ember-in-viewport",
+  "name": "workspace-root",
   "version": "4.1.0",
-  "description": "Detect if an Ember View or Component is in the viewport @ 60FPS",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
-  "scripts": {
-    "build": "ember build --environment=production",
-    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
-    "lint:hbs": "ember-template-lint .",
-    "lint:js": "eslint .",
-    "start": "ember serve",
-    "test": "npm-run-all lint:* test:*",
-    "test:ember": "ember test",
-    "contributors": "npx contributor-faces -e \"(*-bot|*\\[bot\\]|*-tomster|homu|bors)\"",
-    "release": "release-it"
-  },
-  "repository": "https://github.com/dockyard/ember-in-viewport",
-  "engines": {
-    "node": ">= 18"
-  },
-  "author": "Scott Newcomer",
+  "private": true,
+  "repository": "",
   "license": "MIT",
-  "dependencies": {
-    "@embroider/macros": "^1.16.5",
-    "ember-auto-import": "^2.2.3",
-    "ember-cli-babel": "^7.26.11",
-    "ember-destroyable-polyfill": "^2.0.3",
-    "ember-modifier": "^4.2.0",
-    "fast-deep-equal": "^3.1.3",
-    "intersection-observer-admin": "~0.3.4",
-    "raf-pool": "~0.1.4"
+  "author": "",
+  "scripts": {
+    "build": "pnpm --filter ember-in-viewport run build",
+    "lint": "pnpm --filter --if-present lint",
+    "lint:fix": "pnpm --filter --if-present lint:fix",
+    "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:addon": "pnpm --workspace ember-in-viewport",
+    "start:test-app": "pnpm filter --workspace start test-app",
+    "test": "pnpm --workspaces --if-present test"
   },
   "devDependencies": {
-    "@ember/optional-features": "^2.1.0",
-    "@ember/render-modifiers": "^2.1.0",
-    "@ember/test-helpers": "^2.9.4",
-    "@embroider/compat": "^1.9.0",
-    "@embroider/core": "^1.9.0",
-    "@embroider/test-setup": "^4.0.0",
-    "@embroider/webpack": "^1.9.0",
-    "@glimmer/component": "^1.1.2",
-    "@glimmer/tracking": "^1.1.2",
-    "babel-eslint": "^10.1.0",
-    "broccoli-asset-rev": "^3.0.0",
-    "ember-cli": "~5.10.0",
-    "ember-cli-dependency-checker": "^3.3.2",
-    "ember-cli-htmlbars": "^6.3.0",
-    "ember-cli-inject-live-reload": "^2.1.0",
-    "ember-cli-sri": "^2.1.1",
-    "ember-cli-terser": "^4.0.2",
-    "ember-decorators": "^6.1.1",
-    "ember-decorators-polyfill": "^1.1.5",
-    "ember-disable-prototype-extensions": "^1.1.3",
-    "ember-export-application-global": "^2.0.1",
-    "ember-load-initializers": "^2.1.2",
-    "ember-maybe-import-regenerator": "^1.0.0",
-    "ember-qunit": "^8.1.0",
-    "ember-resolver": "^12.0.1",
-    "ember-responsive": "^5.0.0",
-    "ember-source": "~5.10.1",
-    "ember-source-channel-url": "^3.0.0",
-    "ember-template-lint": "^6.0.0",
-    "ember-truth-helpers": "^4.0.3",
-    "ember-try": "^3.0.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-ember": "^10.6.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-qunit": "^8.1.1",
-    "lerna-changelog": "^2.2.0",
-    "loader.js": "^4.7.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^3.3.3",
-    "qunit": "^2.21.1",
-    "qunit-dom": "^3.2.0",
-    "release-it": "^17.6.0",
-    "release-it-lerna-changelog": "^5.0.0",
-    "webpack": "^5.93.0"
+    "concurrently": "^8.2.2"
   },
-  "keywords": [
-    "ember-addon",
-    "ember",
-    "viewport",
-    "intersection observer",
-    "lazy load",
-    "scrollspy"
-  ],
-  "ember": {
-    "edition": "octane"
-  },
-  "ember-addon": {
-    "configPath": "tests/dummy/config"
-  },
-  "volta": {
-    "node": ">=18.0.0"
+  "packageManager": "pnpm@9.6.0",
+  "engines": {
+    "node": ">= v18.0.0",
+    "yarn": "use pnpm",
+    "npm": "use pnpm"
   }
 }

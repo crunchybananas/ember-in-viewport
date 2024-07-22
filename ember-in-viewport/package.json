@@ -1,0 +1,87 @@
+{
+  "name": "ember-in-viewport",
+  "version": "4.1.0",
+  "description": "Detect if an Ember View or Component is in the viewport @ 60FPS",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "rollup --config",
+    "lint": "concurrently 'pnpm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'pnpm:lint:*:fix' --names 'fix:'",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "prepack": "rollup --config",
+    "start": "rollup --config --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "repository": "https://github.com/dockyard/ember-in-viewport",
+  "engines": {
+    "node": ">= 18"
+  },
+  "author": "Scott Newcomer",
+  "license": "MIT",
+  "dependencies": {
+    "@embroider/addon-shim": "^1.8.9",
+    "decorator-transforms": "^2.0.0",
+    "ember-destroyable-polyfill": "^2.0.3",
+    "ember-modifier": "^4.2.0",
+    "fast-deep-equal": "^3.1.3",
+    "intersection-observer-admin": "~0.3.4",
+    "raf-pool": "~0.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/eslint-parser": "^7.24.7",
+    "@babel/runtime": "^7.24.7",
+    "@embroider/addon-dev": "^4.3.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "babel-plugin-ember-template-compilation": "^2.2.5",
+    "concurrently": "^8.2.2",
+    "ember-template-lint": "^6.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^12.1.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^17.8.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.3.1",
+    "rollup": "^4.18.0",
+    "rollup-plugin-copy": "^3.5.0"
+  },
+  "keywords": [
+    "ember-addon",
+    "ember",
+    "viewport",
+    "intersection observer",
+    "lazy load",
+    "scrollspy"
+  ],
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "app-js": {
+      "./modifiers/in-viewport.js": "./dist/_app_/modifiers/in-viewport.js",
+      "./services/in-viewport.js": "./dist/_app_/services/in-viewport.js"
+    },
+    "main": "addon-main.cjs",
+    "type": "addon",
+    "version": 2
+  },
+  "volta": {
+    "node": ">=18.0.0"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js",
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "files": [
+    "addon-main.cjs",
+    "dist"
+  ]
+}
