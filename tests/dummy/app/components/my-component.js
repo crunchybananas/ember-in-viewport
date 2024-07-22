@@ -46,7 +46,7 @@ export default class MyComponent extends Component {
 
     const { onEnter, onExit } = this.inViewport.watchElement(
       elementRef,
-      options
+      options,
     );
     onEnter(this.didEnterViewport.bind(this));
     onExit(this.didExitViewport.bind(this));

@@ -12,14 +12,14 @@ module('Integration | Modifiers | {{in-viewport}}', function (hooks) {
       assert.dom(el).hasText('Four');
       assert.ok(
         Math.abs(intersectionObserverEntry.intersectionRatio - 1) < 0.05,
-        'It receives an intersectionObserverEntry'
+        'It receives an intersectionObserverEntry',
       );
     };
     this.onExit = function (el, intersectionObserverEntry) {
       assert.dom(el).hasText('One');
       assert.ok(
         Math.abs(intersectionObserverEntry.intersectionRatio - 0.411) < 0.05,
-        'It receives an intersectionObserverEntry'
+        'It receives an intersectionObserverEntry',
       );
     };
     await render(hbs`

@@ -28,7 +28,7 @@ export default class InViewport extends Service {
       {
         viewportUseRAF: canUseRAF(),
       },
-      this._buildOptions()
+      this._buildOptions(),
     );
 
     // set viewportUseIntersectionObserver after merging users config to avoid errors in browsers that lack support (https://github.com/DockYard/ember-in-viewport/issues/146)
@@ -71,7 +71,7 @@ export default class InViewport extends Service {
         element,
         observerOptions,
         enterCallback,
-        exitCallback
+        exitCallback,
       );
     } else {
       if (!this.rafAdmin) {
@@ -84,7 +84,7 @@ export default class InViewport extends Service {
         element,
         configOptions,
         enterCallback,
-        exitCallback
+        exitCallback,
       );
     }
 
@@ -147,7 +147,7 @@ export default class InViewport extends Service {
     element,
     observerOptions,
     enterCallback,
-    exitCallback
+    exitCallback,
   ) {
     if (this.isDestroyed || this.isDestroying) {
       return;
@@ -159,7 +159,7 @@ export default class InViewport extends Service {
       element,
       observerOptions,
       enterCallback,
-      exitCallback
+      exitCallback,
     );
   }
 
@@ -172,8 +172,8 @@ export default class InViewport extends Service {
       typeof scrollableArea === 'string' && scrollableArea
         ? document.querySelector(scrollableArea)
         : scrollableArea instanceof HTMLElement
-        ? scrollableArea
-        : undefined;
+          ? scrollableArea
+          : undefined;
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
     // IntersectionObserver takes either a Document Element or null for `root`
@@ -258,7 +258,7 @@ export default class InViewport extends Service {
       enterCallback,
       exitCallback,
       this.addRAF.bind(this, element.id),
-      this.removeRAF.bind(this, element.id)
+      this.removeRAF.bind(this, element.id),
     );
   }
 }

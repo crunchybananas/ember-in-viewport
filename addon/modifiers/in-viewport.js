@@ -48,12 +48,12 @@ if (macroCondition(dependencySatisfies('ember-modifier', '>=3.2.0 || 4.x'))) {
     validateArguments() {
       assert(
         `'{{in-viewport}}' does not accept positional parameters. Specify listeners via 'onEnter' / 'onExit'.`,
-        this.positional.length === 0
+        this.positional.length === 0,
       );
       assert(
         `'{{in-viewport}}' either expects 'onEnter', 'onExit' or both to be present.`,
         typeof this.named.onEnter === 'function' ||
-          typeof this.named.onExit === 'function'
+          typeof this.named.onExit === 'function',
       );
     }
 
@@ -78,14 +78,14 @@ if (macroCondition(dependencySatisfies('ember-modifier', '>=3.2.0 || 4.x'))) {
     setupWatcher(element) {
       assert(
         `'${element}' is already being watched. Make sure that '{{in-viewport}}' is only used once on this element and that you are not calling 'inViewport.watchElement(element)' in other places.`,
-        !WATCHED_ELEMENTS.has(element)
+        !WATCHED_ELEMENTS.has(element),
       );
       if (DEBUG) WATCHED_ELEMENTS.add(element);
       this.inViewport.watchElement(
         element,
         this.options,
         this.onEnter,
-        this.onExit
+        this.onExit,
       );
       this.lastOptions = this.options;
     }
@@ -116,12 +116,12 @@ if (macroCondition(dependencySatisfies('ember-modifier', '>=3.2.0 || 4.x'))) {
     validateArguments() {
       assert(
         `'{{in-viewport}}' does not accept positional parameters. Specify listeners via 'onEnter' / 'onExit'.`,
-        this.args.positional.length === 0
+        this.args.positional.length === 0,
       );
       assert(
         `'{{in-viewport}}' either expects 'onEnter', 'onExit' or both to be present.`,
         typeof this.args.named.onEnter === 'function' ||
-          typeof this.args.named.onExit === 'function'
+          typeof this.args.named.onExit === 'function',
       );
     }
 
@@ -146,14 +146,14 @@ if (macroCondition(dependencySatisfies('ember-modifier', '>=3.2.0 || 4.x'))) {
     setupWatcher() {
       assert(
         `'${this.element}' is already being watched. Make sure that '{{in-viewport}}' is only used once on this element and that you are not calling 'inViewport.watchElement(element)' in other places.`,
-        !WATCHED_ELEMENTS.has(this.element)
+        !WATCHED_ELEMENTS.has(this.element),
       );
       if (DEBUG) WATCHED_ELEMENTS.add(this.element);
       this.inViewport.watchElement(
         this.element,
         this.options,
         this.onEnter,
-        this.onExit
+        this.onExit,
       );
       this.lastOptions = this.options;
     }

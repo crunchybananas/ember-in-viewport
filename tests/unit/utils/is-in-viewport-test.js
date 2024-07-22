@@ -54,7 +54,7 @@ module('Unit | Utility | is in viewport', function (hooks) {
       fakeRectInViewport,
       innerHeight,
       innerWidth,
-      fakeNoTolerance
+      fakeNoTolerance,
     );
     assert.ok(result);
   });
@@ -65,7 +65,7 @@ module('Unit | Utility | is in viewport', function (hooks) {
       fakeRectNotInViewport,
       innerHeight,
       innerWidth,
-      fakeNoTolerance
+      fakeNoTolerance,
     );
     assert.false(result);
   });
@@ -76,7 +76,7 @@ module('Unit | Utility | is in viewport', function (hooks) {
       fakeRectNotInViewport,
       innerHeight,
       innerWidth,
-      fakeTolerance
+      fakeTolerance,
     );
     assert.ok(result);
   });
@@ -96,7 +96,7 @@ module('Unit | Utility | is in viewport', function (hooks) {
       fakeRectWithSubpixelsInViewport,
       innerHeight,
       innerWidth,
-      fakeNoTolerance
+      fakeNoTolerance,
     );
     assert.ok(result);
   });
@@ -116,7 +116,7 @@ module('Unit | Utility | is in viewport', function (hooks) {
       fakeRectWithSubpixelsInViewport,
       innerHeight,
       innerWidth,
-      fakeNoTolerance
+      fakeNoTolerance,
     );
     assert.ok(result);
   });
@@ -136,7 +136,7 @@ module('Unit | Utility | is in viewport', function (hooks) {
       fakeRectWithSubpixelsInViewport,
       innerHeight,
       innerWidth,
-      fakeNoTolerance
+      fakeNoTolerance,
     );
     assert.notOk(result);
   });
@@ -156,7 +156,7 @@ module('Unit | Utility | is in viewport', function (hooks) {
       fakeRectWithSubpixelsInViewport,
       innerHeight,
       innerWidth,
-      fakeNoTolerance
+      fakeNoTolerance,
     );
     assert.notOk(result);
   });

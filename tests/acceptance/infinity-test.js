@@ -24,7 +24,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     assert.equal(
       findAll('.infinity-scrollable.inactive').length,
       1,
-      'component is inactive before fetching more data'
+      'component is inactive before fetching more data',
     );
     document.querySelector('.infinity-scrollable').scrollIntoView(false);
 
@@ -47,7 +47,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
       () => {
         return findAll('.infinity-item').length === 20;
       },
-      { timeoutMessage: 'did not find all items in time' }
+      { timeoutMessage: 'did not find all items in time' },
     );
 
     await settled();
@@ -55,12 +55,12 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     assert.equal(
       findAll('.infinity-item').length,
       20,
-      'after infinity has more items'
+      'after infinity has more items',
     );
     assert.equal(
       find('h1').textContent.trim(),
       '{{in-viewport}} modifier',
-      'has title'
+      'has title',
     );
 
     document.querySelector('.infinity-item-19').scrollIntoView(false);
@@ -69,7 +69,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
       () => {
         return findAll('.infinity-item').length === 30;
       },
-      { timeoutMessage: 'did not find all items in time' }
+      { timeoutMessage: 'did not find all items in time' },
     );
 
     await settled();
@@ -77,12 +77,12 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     assert.equal(
       findAll('.infinity-item').length,
       30,
-      'after infinity has more items'
+      'after infinity has more items',
     );
     assert.equal(
       find('h1').textContent.trim(),
       '{{in-viewport}} modifier',
-      'has title'
+      'has title',
     );
   });
 
@@ -101,7 +101,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
       () => {
         return findAll('.infinity-item').length === 20;
       },
-      { timeoutMessage: 'did not find all items in time' }
+      { timeoutMessage: 'did not find all items in time' },
     );
 
     await settled();
@@ -109,7 +109,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     assert.equal(
       findAll('.infinity-item').length,
       20,
-      'after infinity has more items'
+      'after infinity has more items',
     );
   });
 
@@ -133,7 +133,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     assert.equal(
       findAll('.infinity-scrollable.inactive').length,
       1,
-      'component is inactive before fetching more data'
+      'component is inactive before fetching more data',
     );
     document.querySelector('.infinity-scrollable').scrollIntoView(false);
 
@@ -149,7 +149,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     assert.equal(
       findAll('.infinity-scrollable-rAF.inactive').length,
       1,
-      'component is inactive before fetching more data'
+      'component is inactive before fetching more data',
     );
     document.querySelector('.infinity-scrollable-rAF').scrollIntoView(false);
 
@@ -162,7 +162,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     assert.equal(
       findAll('.infinity-scrollable-rAF.inactive').length,
       1,
-      'component is inactive after fetching more data'
+      'component is inactive after fetching more data',
     );
   });
 
@@ -173,7 +173,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     assert.equal(
       findAll('.infinity-scrollable-rAF-bottom.inactive').length,
       1,
-      'component is inactive before fetching more data'
+      'component is inactive before fetching more data',
     );
     document
       .querySelector('.infinity-scrollable-rAF-bottom')
@@ -202,7 +202,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     assert.equal(
       findAll('.infinity-scrollable-scrollEvent.inactive').length,
       1,
-      'component is inactive before fetching more data'
+      'component is inactive before fetching more data',
     );
     await document
       .querySelector('.infinity-scrollable-scrollEvent')
@@ -215,7 +215,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     assert.equal(findAll('.infinity-svg-scrollEvent').length, 20);
     assert.ok(
       find('.infinity-scrollable-scrollEvent.active'),
-      'component is still active after fetching more data'
+      'component is still active after fetching more data',
     );
     // scroll 1px to trigger inactive state
     let elem = document.getElementsByClassName('list-scrollEvent')[0];
@@ -227,7 +227,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
 
     assert.ok(
       find('.infinity-scrollable-scrollEvent.inactive'),
-      'component is inactive after scrolling'
+      'component is inactive after scrolling',
     );
   });
 
@@ -242,7 +242,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
       () => {
         return findAll('.infinity-item').length === 20;
       },
-      { timeoutMessage: 'did not find all items in time' }
+      { timeoutMessage: 'did not find all items in time' },
     );
 
     await settled();

@@ -11,7 +11,7 @@ const models = [
     () =>
       `https://s3.amazonaws.com/uifaces/faces/twitter/${
         images[(Math.random() * images.length) | 0]
-      }/128.jpg`
+      }/128.jpg`,
   ),
 ];
 
@@ -30,7 +30,7 @@ export default class Infinity extends Controller {
         () =>
           `https://s3.amazonaws.com/uifaces/faces/twitter/${
             images[(Math.random() * images.length) | 0]
-          }/128.jpg`
+          }/128.jpg`,
       ),
     ];
     return new Promise((resolve) => {

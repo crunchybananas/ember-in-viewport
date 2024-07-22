@@ -4,7 +4,7 @@ const { floor } = Math;
 export default function checkScrollDirection(
   lastPosition = null,
   newPosition = {},
-  sensitivity = 1
+  sensitivity = 1,
 ) {
   if (!lastPosition) {
     return 'none';

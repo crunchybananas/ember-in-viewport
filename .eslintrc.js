@@ -24,6 +24,7 @@ module.exports = {
     'ember/no-classic-classes': 0,
     'ember/no-classic-components': 0,
     'ember/require-tagless-components': 0,
+    'no-at-ember-render-modifiers': 0,
   },
   overrides: [
     // node files

@@ -19,7 +19,7 @@ function checkIntersectionObserver(window) {
           get: function () {
             return this.intersectionRatio > 0;
           },
-        }
+        },
       );
     }
     return true;

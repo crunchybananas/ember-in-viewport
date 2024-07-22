@@ -14,11 +14,11 @@ module('Unit | Initializer | viewport config', function (hooks) {
     assert.ok(viewportConfigKeys.length);
     assert.ok(
       viewportConfigKeys.includes('intersectionThreshold'),
-      'intersectionThreshold is in viewportConfig'
+      'intersectionThreshold is in viewportConfig',
     );
     assert.ok(
       viewportConfigKeys.includes('scrollableArea'),
-      'scrollableArea is in viewportConfig'
+      'scrollableArea is in viewportConfig',
     );
   });
 });

@@ -319,14 +319,14 @@ export default class DummyArtwork extends Component {
           const settings = Object.assign(
             {},
             { fileType: this.fileType },
-            this.profiles[name]
+            this.profiles[name],
           );
           // Build a srcset from patterned URL
           if (isFallback) {
             return;
           }
           return buildSrcset(url, settings, pixelDensity);
-        })
+        }),
       )
       .join(', ');
   }

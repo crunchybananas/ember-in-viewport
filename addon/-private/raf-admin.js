@@ -41,7 +41,7 @@ export default class RAFAdmin {
   addEnterCallback(element, enterCallback) {
     this.elementRegistry.set(
       element,
-      Object.assign({}, this.elementRegistry.get(element), { enterCallback })
+      Object.assign({}, this.elementRegistry.get(element), { enterCallback }),
     );
   }
 
@@ -55,7 +55,7 @@ export default class RAFAdmin {
   addExitCallback(element, exitCallback) {
     this.elementRegistry.set(
       element,
-      Object.assign({}, this.elementRegistry.get(element), { exitCallback })
+      Object.assign({}, this.elementRegistry.get(element), { exitCallback }),
     );
   }
 }
@@ -77,14 +77,14 @@ export function startRAF(
   enterCallback,
   exitCallback,
   addRAF, // bound function from service to add elementId to raf pool
-  removeRAF // bound function from service to remove elementId to raf pool
+  removeRAF, // bound function from service to remove elementId to raf pool
 ) {
   const domScrollableArea =
     typeof scrollableArea === 'string' && scrollableArea
       ? document.querySelector(scrollableArea)
       : scrollableArea instanceof HTMLElement
-      ? scrollableArea
-      : undefined;
+        ? scrollableArea
+        : undefined;
 
   const height = domScrollableArea
     ? domScrollableArea.offsetHeight +
@@ -105,7 +105,7 @@ export function startRAF(
       viewportSpy,
       enterCallback,
       exitCallback,
-      viewportEntered
+      viewportEntered,
     );
 
     if (viewportSpy || viewportEntered !== 'true') {
@@ -119,8 +119,8 @@ export function startRAF(
           enterCallback,
           exitCallback,
           addRAF,
-          removeRAF
-        )
+          removeRAF,
+        ),
       );
     } else {
       removeRAF();
@@ -134,7 +134,7 @@ function triggerDidEnterViewport(
   viewportSpy,
   enterCallback,
   exitCallback,
-  viewportEntered = false
+  viewportEntered = false,
 ) {
   const didEnter =
     (!viewportEntered || viewportEntered === 'false') && hasEnteredViewport;

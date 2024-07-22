@@ -33,7 +33,7 @@ module('Unit Class | -observer-admin', function (hooks) {
       root,
       observerOptions,
       () => {},
-      () => {}
+      () => {},
     );
     assert.ok(true);
   });

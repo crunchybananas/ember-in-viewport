@@ -18,7 +18,7 @@ module('Acceptance | Intersection Observer', function (hooks) {
     await waitFor('.my-component.top.start-enabled.active');
     assert.ok(
       find('.my-component.top.start-enabled.active'),
-      'component is active'
+      'component is active',
     );
   });
 
@@ -52,7 +52,7 @@ module('Acceptance | Intersection Observer', function (hooks) {
     await waitFor('.my-component.top.start-enabled.inactive');
     assert.ok(
       find('.my-component.top.start-enabled.inactive'),
-      'component is inactive'
+      'component is inactive',
     );
   });
 });
