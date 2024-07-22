@@ -11,8 +11,6 @@ module('Acceptance | Intersection Observer', function (hooks) {
   });
 
   test('Component is active when in viewport', async function (assert) {
-    assert.expect(1);
-
     await visit('/');
 
     await waitFor('.my-component.top.start-enabled.active');
@@ -23,16 +21,12 @@ module('Acceptance | Intersection Observer', function (hooks) {
   });
 
   test('Component is inactive when not in viewport', async function (assert) {
-    assert.expect(1);
-
     await visit('/');
 
     assert.ok(find('.my-component.bottom.inactive'), 'component is inactive');
   });
 
   test('Component moves to active when scrolled into viewport', async function (assert) {
-    assert.expect(2);
-
     await visit('/');
 
     assert.ok(find('.my-component.bottom.inactive'), 'component is inactive');
@@ -43,8 +37,6 @@ module('Acceptance | Intersection Observer', function (hooks) {
   });
 
   test('Component moves back to inactive when scrolled out of viewport', async function (assert) {
-    assert.expect(1);
-
     await visit('/');
 
     document.querySelector('.my-component.bottom').scrollIntoView(false);

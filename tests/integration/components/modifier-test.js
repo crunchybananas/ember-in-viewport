@@ -7,7 +7,6 @@ module('Integration | Modifiers | {{in-viewport}}', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it invokes the given `onEnter` and `onExist` callbacks passing the element and the intersectionObserverEntry', async function (assert) {
-    assert.expect(4);
     this.onEnter = function (el, intersectionObserverEntry) {
       assert.dom(el).hasText('Four');
       assert.ok(

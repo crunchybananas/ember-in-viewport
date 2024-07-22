@@ -17,7 +17,7 @@ module('Integration | Component | my component', function (hooks) {
       </MyComponent>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.strictEqual(this.element.textContent.trim(), 'template block text');
   });
 
   test('it renders with intersectionThreshold set', async function (assert) {
@@ -35,6 +35,6 @@ module('Integration | Component | my component', function (hooks) {
       </MyComponent>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.strictEqual(this.element.textContent.trim(), 'template block text');
   });
 });

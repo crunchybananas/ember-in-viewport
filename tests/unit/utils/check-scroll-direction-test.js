@@ -22,13 +22,11 @@ module('Unit | Utility | check scroll direction', function (hooks) {
       { direction: 'left', position: { top: 300, left: 100 } },
     ];
 
-    assert.expect(movements.length);
-
     movements.forEach((movement) => {
       const { direction, position } = movement;
       const scrollDirection = checkScrollDirection(lastPosition, position);
 
-      assert.equal(direction, scrollDirection);
+      assert.strictEqual(direction, scrollDirection);
     });
   });
 
@@ -39,13 +37,11 @@ module('Unit | Utility | check scroll direction', function (hooks) {
       { direction: 'down', position: { top: 500, left: 250 } },
     ];
 
-    assert.expect(movements.length);
-
     movements.forEach((movement) => {
       const { direction, position } = movement;
       const scrollDirection = checkScrollDirection(lastPosition, position, 100);
 
-      assert.equal(direction, scrollDirection);
+      assert.strictEqual(direction, scrollDirection);
     });
   });
 });

@@ -20,8 +20,13 @@ module('Acceptance | infinity-scrollable', function (hooks) {
   test('IntersectionObserver Component fetches more data when scrolled into viewport', async function (assert) {
     await visit('/infinity-scrollable');
 
-    assert.equal(findAll('.infinity-svg').length, 10);
-    assert.equal(
+    assert.strictEqual(
+      findAll('.infinity-svg').length,
+      10,
+      'The number of .infinity-svg elements should be 10',
+    );
+
+    assert.strictEqual(
       findAll('.infinity-scrollable.inactive').length,
       1,
       'component is inactive before fetching more data',
@@ -33,13 +38,21 @@ module('Acceptance | infinity-scrollable', function (hooks) {
       return findAll('.infinity-svg').length === 20;
     });
 
-    assert.equal(findAll('.infinity-svg').length, 20);
+    assert.strictEqual(
+      findAll('.infinity-svg').length,
+      20,
+      'The number of .infinity-svg elements should be 20',
+    );
   });
 
   test('works with in-viewport modifier', async function (assert) {
     await visit('/infinity-built-in-modifiers');
 
-    assert.equal(findAll('.infinity-item').length, 10, 'has items to start');
+    assert.strictEqual(
+      findAll('.infinity-item').length,
+      10,
+      'has items to start',
+    );
 
     document.querySelector('.infinity-item-9').scrollIntoView(false);
 
@@ -52,12 +65,12 @@ module('Acceptance | infinity-scrollable', function (hooks) {
 
     await settled();
 
-    assert.equal(
+    assert.strictEqual(
       findAll('.infinity-item').length,
       20,
       'after infinity has more items',
     );
-    assert.equal(
+    assert.strictEqual(
       find('h1').textContent.trim(),
       '{{in-viewport}} modifier',
       'has title',
@@ -74,12 +87,12 @@ module('Acceptance | infinity-scrollable', function (hooks) {
 
     await settled();
 
-    assert.equal(
+    assert.strictEqual(
       findAll('.infinity-item').length,
       30,
       'after infinity has more items',
     );
-    assert.equal(
+    assert.strictEqual(
       find('h1').textContent.trim(),
       '{{in-viewport}} modifier',
       'has title',
@@ -93,7 +106,11 @@ module('Acceptance | infinity-scrollable', function (hooks) {
 
     await visit('/infinity-built-in-modifiers');
 
-    assert.equal(findAll('.infinity-item').length, 10, 'has items to start');
+    assert.strictEqual(
+      findAll('.infinity-item').length,
+      10,
+      'has items to start',
+    );
 
     document.querySelector('.infinity-item-9').scrollIntoView(false);
 
@@ -106,7 +123,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
 
     await settled();
 
-    assert.equal(
+    assert.strictEqual(
       findAll('.infinity-item').length,
       20,
       'after infinity has more items',
@@ -116,21 +133,21 @@ module('Acceptance | infinity-scrollable', function (hooks) {
   test('ember-in-viewport works with classes', async function (assert) {
     await visit('/infinity-class');
 
-    assert.equal(findAll('.infinity-class-item').length, 20);
+    assert.strictEqual(findAll('.infinity-class-item').length, 20);
     document.querySelector('#loader').scrollIntoView(false);
 
     await waitUntil(() => {
       return findAll('.infinity-class-item').length === 40;
     });
 
-    assert.equal(findAll('.infinity-class-item').length, 40);
+    assert.strictEqual(findAll('.infinity-class-item').length, 40);
   });
 
   test('IntersectionObserver Component fetches more data when left to right scrolling', async function (assert) {
     await visit('/infinity-right-left');
 
-    assert.equal(findAll('.infinity-svg').length, 10);
-    assert.equal(
+    assert.strictEqual(findAll('.infinity-svg').length, 10);
+    assert.strictEqual(
       findAll('.infinity-scrollable.inactive').length,
       1,
       'component is inactive before fetching more data',
@@ -139,14 +156,14 @@ module('Acceptance | infinity-scrollable', function (hooks) {
 
     await waitFor('.infinity-scrollable.inactive');
 
-    // assert.equal(findAll('.infinity-svg').length, 20);
+    // assert.strictEqual(findAll('.infinity-svg').length, 20);
   });
 
   test('rAF Component fetches more data when scrolled into viewport', async function (assert) {
     await visit('/infinity-scrollable-raf');
 
-    assert.equal(findAll('.infinity-svg-rAF').length, 10);
-    assert.equal(
+    assert.strictEqual(findAll('.infinity-svg-rAF').length, 10);
+    assert.strictEqual(
       findAll('.infinity-scrollable-rAF.inactive').length,
       1,
       'component is inactive before fetching more data',
@@ -158,8 +175,8 @@ module('Acceptance | infinity-scrollable', function (hooks) {
     });
     await waitFor('.infinity-scrollable-rAF.inactive');
 
-    assert.equal(findAll('.infinity-svg-rAF').length, 20);
-    assert.equal(
+    assert.strictEqual(findAll('.infinity-svg-rAF').length, 20);
+    assert.strictEqual(
       findAll('.infinity-scrollable-rAF.inactive').length,
       1,
       'component is inactive after fetching more data',
@@ -169,8 +186,8 @@ module('Acceptance | infinity-scrollable', function (hooks) {
   test('rAF (second) component does not fetch after first call (viewportSpy is false)', async function (assert) {
     await visit('/infinity-scrollable-raf');
 
-    assert.equal(findAll('.infinity-svg-rAF-bottom').length, 10);
-    assert.equal(
+    assert.strictEqual(findAll('.infinity-svg-rAF-bottom').length, 10);
+    assert.strictEqual(
       findAll('.infinity-scrollable-rAF-bottom.inactive').length,
       1,
       'component is inactive before fetching more data',
@@ -198,8 +215,8 @@ module('Acceptance | infinity-scrollable', function (hooks) {
   test('scrollEvent Component fetches more data when scrolled into viewport', async function (assert) {
     await visit('/infinity-scrollable-scrollevent');
 
-    assert.equal(findAll('.infinity-svg-scrollEvent').length, 10);
-    assert.equal(
+    assert.strictEqual(findAll('.infinity-svg-scrollEvent').length, 10);
+    assert.strictEqual(
       findAll('.infinity-scrollable-scrollEvent.inactive').length,
       1,
       'component is inactive before fetching more data',
@@ -212,7 +229,7 @@ module('Acceptance | infinity-scrollable', function (hooks) {
       return findAll('.infinity-svg-scrollEvent').length === 20;
     });
 
-    assert.equal(findAll('.infinity-svg-scrollEvent').length, 20);
+    assert.strictEqual(findAll('.infinity-svg-scrollEvent').length, 20);
     assert.ok(
       find('.infinity-scrollable-scrollEvent.active'),
       'component is still active after fetching more data',
@@ -234,7 +251,11 @@ module('Acceptance | infinity-scrollable', function (hooks) {
   test('works with custom elements', async function (assert) {
     await visit('/infinity-custom-element');
 
-    assert.equal(findAll('.infinity-item').length, 10, 'has items to start');
+    assert.strictEqual(
+      findAll('.infinity-item').length,
+      10,
+      'has items to start',
+    );
 
     document.querySelector('custom-sentinel').scrollIntoView(false);
 
@@ -247,6 +268,6 @@ module('Acceptance | infinity-scrollable', function (hooks) {
 
     await settled();
 
-    // assert.equal(findAll('.infinity-item').length, 20, 'after infinity has more items');
+    // assert.strictEqual(findAll('.infinity-item').length, 20, 'after infinity has more items');
   });
 });
